@@ -11,20 +11,18 @@ import (
 	"log"
 	"github.com/google/gopacket"
 	"fmt"
+	"time"
 )
-
-/*
-var (
-	device       string = "enp4s0"
-	snapshotLen int32  = 1024
-	promiscuous  bool   = false
-	err          error
-	timeout      time.Duration = 5 * time.Second
-	handle       *pcap.Handle
-)
-*/
 
 func main() {
+	var (
+		device       string = "enp4s0"
+		snapshotLen int32  = 1024
+		promiscuous  bool   = false
+		err          error
+		timeout      time.Duration = 5 * time.Second
+		handle       *pcap.Handle
+	)
 	// Open device for live capture
 	handle, err = pcap.OpenLive(device, snapshotLen, promiscuous, timeout)
 	if err != nil {
